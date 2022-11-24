@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import img from '../../../Components/logo/logo.jpg'
 
 const Navbar = () => {
     const navBarItem =  
@@ -20,7 +21,10 @@ const Navbar = () => {
        {navBarItem}
       </ul>
     </div>
-    < Link to='/'className="btn btn-outline border-none italic text-2xl">STRINKINGLY</Link>
+    <div class="w-10 rounded-md ">
+          <img src= {img} alt='' />
+        </div>
+    < Link to='/'className="btn btn-outline border-none italic text-2xl pl-4">STRINKINGLY</Link>
   </div>
   <div className="navbar-center hidden lg:flex ">
     <ul className="menu menu-horizontal pl-8">
