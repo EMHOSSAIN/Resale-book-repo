@@ -1,17 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import img from '../../../Components/logo/logo.jpg'
+import { AuthContext } from '../../../Context/AuthProvider';
+import {CgProfile} from 'react-icons/cg'
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
+    const {user,logout}=useContext(AuthContext)
+    const handleLogout=()=>{
+        logout()
+        .then(result=>{
+            toast.success("Logout Successfully")
+        })
+        .catch(error=>{})
+    }
     const navBarItem =
         <>
             <li> <Link to='/'>Home</Link></li>
             <li> <Link to='/blog'>Blog</Link></li>
+          {
+            user?.uid?
+            <button onClick={handleLogout} className="btn btn-warning">Logout</button>
+            :
             <li> <Link to='/login'>Login</Link></li>
+          }
         </>
+      
     return (
-        <div  >
-            <div className="navbar bg-green-300 rounded-md">
+        
+            <div  className="navbar bg-green-300 rounded-md">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -32,10 +49,17 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a href='/' className="btn">Get started</a>
+                   {
+                    user?.uid?
+                    <div class="w-10 rounded-md ">
+                        <img src={user?.photoURL} alt='' />
+                    </div>
+                     :
+                    <CgProfile className='font-5xl'/>
+                   }
                 </div>
             </div>
-        </div>
+       
     );
 };
 

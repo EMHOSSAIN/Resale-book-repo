@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../Context/AuthProvider';
+import {toast} from 'react-hot-toast';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
+    
+    const {user,createNewuser} = useContext(AuthContext)
+
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || "/";
     const handlesignup=event=>{
         event.preventDefault()
         const form = event.target;
@@ -10,6 +19,23 @@ const SignUp = () => {
         const password = form.password.value;
 
         console.log(name,image,email,password)
+
+        createNewuser(email,password)
+        .then(result=>{
+            const user = result.user;
+            console.log(user)
+            form.reset()
+            toast.success('You are successfully singup')
+            navigate(from, { replace: true });
+           
+            
+        })
+
+        .catch(error=>{
+            console.error(error)
+        })
+        
+       
     }
     return (
        <form onSubmit={handlesignup}>
