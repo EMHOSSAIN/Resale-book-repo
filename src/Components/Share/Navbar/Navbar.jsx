@@ -51,6 +51,7 @@ const Navbar = () => {
                 <div className="navbar-end">
                    {
                     user?.uid?
+                    
                     <div class="w-10 rounded-md ">
                         <img src={user?.photoURL} alt='' />
                     </div>
