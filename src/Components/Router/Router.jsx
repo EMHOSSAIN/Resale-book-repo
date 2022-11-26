@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
            {
             path:'/category/:id',
             element:<BookShow></BookShow>,
-            loader:({params})=> (`http://localhost:5000/book/${params.id}`)
+            loader:({params})=> fetch (`http://localhost:5000/book/${params.id}`)
            }
         ]
         

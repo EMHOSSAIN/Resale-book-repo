@@ -68,3 +68,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+Project Description:
+1) i used react router dom as will as more defendency
+2)This is a helpfun project for every one
+3) This project is about book resaleing kind of book
+4) Live project link:
+5) I used to defendency more 3rd party things whise hekp me to create this project
