@@ -1,51 +1,56 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, signInWithPopup } from 'firebase/auth'
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, signInWithPopup, updateProfile } from 'firebase/auth'
 import app from '../Firebase/Firebase.config';
-import SignUp from '../Components/Share/Signup/SignUp';
+
 
 export const AuthContext = createContext()
 const auth = getAuth(app)
 
 
 const AuthProvider = ({ children }) => {
-    const [user,setUser]=useState(null)
-    const [loading,setLoading]=useState(true)
+    const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(true)
 
 
-    const createNewuser = (email, password)=>{
-        return createUserWithEmailAndPassword (auth, email, password)
+    const createNewuser = (email, password) => {
+        setLoading(true)
+        return createUserWithEmailAndPassword(auth, email, password)
     }
 
-    const login = (email,password)=>{
+    const login = (email, password) => {
         setLoading(true)
-
         return signInWithEmailAndPassword(auth, email, password)
 
     }
-    const googlesignup = (provider)=>{
+    const googlesignup = (provider) => {
         setLoading(true)
-        return signInWithPopup(auth,provider)
+        return signInWithPopup(auth, provider)
     }
-    const logout = ()=>{
+    const updateUser = (userinfo) => {
+        setLoading(true)
+        return updateProfile(user, userinfo)
+    }
+    const logout = () => {
         setLoading(true)
         return signOut(auth)
     }
-    useEffect(()=>{
-        const Unsubscribe = onAuthStateChanged(auth,currentUsers=>{
+    useEffect(() => {
+        const Unsubscribe = onAuthStateChanged(auth, currentUsers => {
             setUser(currentUsers)
             setLoading(false)
-          })
-  
-          return()=> Unsubscribe()
+        })
 
-    },[])
+        return () => Unsubscribe()
+
+    }, [])
 
     const authinfo = {
         user,
+        loading,
         createNewuser,
+        updateUser,
         login,
         logout,
-        loading,
         googlesignup,
 
     }

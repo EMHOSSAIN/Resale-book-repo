@@ -1,16 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider';
 import {toast} from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
     
-    const {user,createNewuser} = useContext(AuthContext)
+    const {createNewuser,updateUser} = useContext(AuthContext)
+    const[userError,setUserError]=useState('')
 
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || "/";
     const handlesignup=event=>{
+        setUserError('')
         event.preventDefault()
         const form = event.target;
         const name = form.name.value;
@@ -24,6 +26,7 @@ const SignUp = () => {
         .then(result=>{
             const user = result.user;
             console.log(user)
+            handleUpdateUserProfile()
             form.reset()
             toast.success('You are successfully singup')
             navigate(from, { replace: true });
@@ -32,11 +35,27 @@ const SignUp = () => {
         })
 
         .catch(error=>{
-            console.error(error)
+            setUserError(error.message)
         })
         
        
     }
+
+    const handleUpdateUserProfile =(name)=>{
+
+        const profile={
+  
+          displayName : name,
+         
+  
+        }
+
+        updateUser (profile)
+        .then(()=>{})
+        .catch(error=>{
+          console.error(error)
+        })
+}
     return (
        <form onSubmit={handlesignup}>
          <div className='mt-6'>
@@ -69,6 +88,9 @@ const SignUp = () => {
                                 </label>
                                 <input name='password' type="password" placeholder=" your password" class="input input-bordered" />
                               </div>
+                              {
+                                setUserError && <p className='text-xl text-red-600 mt-2'> {userError} </p>
+                              }
                                <div class="form-control mt-6">
                                 <button class="btn btn-primary">SignUp</button>
                             </div>
