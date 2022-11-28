@@ -74,5 +74,5 @@ Project Description:
 1) i used react router dom as will as more defendency
 2)This is a helpfun project for every one
 3) This project is about book resaleing kind of book
-4) Live project link:
+4) Live project link: https://assignment-12-ad3e9.web.app
 5) I used to defendency more 3rd party things whise hekp me to create this project
