@@ -42,6 +42,11 @@ const Model = ({setResaleBook, resaleBook}) => {
             setResaleBook(null)
             toast.success('Buying Confirm')
         }
+        else{
+
+            toast.error('You already brought this book')
+            setResaleBook(null)
+        }
        })
        
         
@@ -63,7 +68,7 @@ const Model = ({setResaleBook, resaleBook}) => {
                    <input name='usetime' type="text" disabled value={Year_of_use} className="input input-bordered w-full mt-3" />
                    <label>Book Condition</label>
                    <input name='condition' type="text" disabled value={Book_condition} className="input input-bordered w-full mt-3" />
-                    <input name='name'  type="text" placeholder='Your name' className="input input-bordered w-full mt-3" />
+                    <input name='name'  type="text" value={user?.displayName} className="input input-bordered w-full mt-3" />
                    <input name='number' type="text" placeholder="Your Mobile Number" className="input input-bordered w-full mt-3" />
                    <input name='location' type="text" placeholder="Your Location" className="input input-bordered w-full mt-3" />
                     <input className='btn w-full mt-4' type='submit' value='submit'/>
