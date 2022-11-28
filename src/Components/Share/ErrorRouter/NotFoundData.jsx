@@ -1,11 +1,11 @@
 import React from 'react';
 import'./NotFoundData.css'
+import img from '../../Picture/404.png'
 
 const NotFoundData = () => {
     return (
-        <div className='not-found'>
-            <h1>404</h1>
-            <p>Page is empty.No data Founded</p>
+        <div className='w-10/12 h-full'>
+           <img src={img} alt=''></img>
         </div>
     );
 };

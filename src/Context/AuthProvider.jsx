@@ -28,7 +28,7 @@ const AuthProvider = ({ children }) => {
     }
     const updateUser = (userinfo) => {
         setLoading(true)
-        return updateProfile(user, userinfo)
+        return updateProfile(auth, userinfo)
     }
     const logout = () => {
         setLoading(true)

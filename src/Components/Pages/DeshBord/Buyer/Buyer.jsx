@@ -38,9 +38,9 @@ const Buyer = () => {
                             buyings.map((buying,i)=>
                             <tr>
                                 <th>{i+1}</th>
-                                <td>{}</td>
-                                <td>Quality Control Specialist</td>
-                                <td>Blue</td>
+                                <td>{buying.name}</td>
+                                <td>{buying.email} </td>
+                                <td> {buying.price} </td>
                             </tr>)
                         }
                         
