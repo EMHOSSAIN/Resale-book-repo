@@ -34,7 +34,7 @@ export const router = createBrowserRouter([
            {
             path:'/category/:id',
             element:<PrivateRouter><BookShow></BookShow></PrivateRouter>,
-            loader:({params})=> fetch (`http://localhost:5000/book/${params.id}`)
+            loader:({params})=> fetch (` https://server-emhossain.vercel.app/book/${params.id}`)
            }
         ]
        

@@ -27,7 +27,7 @@ const Model = ({setResaleBook, resaleBook}) => {
             location
         }
         
-       fetch('http://localhost:5000/buyings',{
+       fetch(' https://server-emhossain.vercel.app/buyings',{
         method:'POST',
         headers:{
             'content-type':'application/json'
