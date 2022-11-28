@@ -1,4 +1,5 @@
 import React from 'react';
+import './Banner.css'
 import img1 from '../../../../Components/Picture/img1.png'
 import img2 from '../../../../Components/Picture/img2.png'
 import img3 from '../../../../Components/Picture/img3.png'
@@ -9,15 +10,19 @@ import img7 from '../../../../Components/Picture/img7.png'
 
 const Banner = () => {
     return (
-        <div>
-            <span> <img src={img1} alt='' /> </span>
-            <span> <img src={img2} alt='' /> </span>
-            <span> <img src={img3} alt='' /> </span>
-            <span> <img src={img4} alt='' /> </span>
-            <span> <img src={img5} alt='' /> </span>
-            <span> <img src={img6} alt='' /> </span>
-            <span> <img src={img7} alt='' /> </span>
+      <div className='mt-10 rounded-md'>
+         <section className='slider-img'>
+         <div className='slider'>
+            <span className='slider1' > <img src={img1} alt='' /> </span>
+            <span className='slider2'> <img src={img2} alt='' /> </span>
+            <span className='slider3' > <img src={img3} alt='' /> </span>
+            <span className='slider4'> <img src={img4} alt='' /> </span>
+            <span className='slider5'> <img src={img5} alt='' /> </span>
+            <span className='slider6'> <img src={img6} alt='' /> </span>
+            <span className='slider7'> <img src={img7} alt='' /> </span>
         </div>
+       </section>
+      </div>
     );
 };
 
