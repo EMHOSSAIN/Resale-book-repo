@@ -46,8 +46,7 @@ const SignUp = () => {
         const profile={
   
           displayName : name,
-         
-  
+       
         }
 
         updateUser (profile)

@@ -37,8 +37,8 @@ const Buyer = () => {
                         {
                             buyings.map((buying,i)=>
                             <tr>
-                                <th>{i}</th>
-                                <td>Cy Ganderton</td>
+                                <th>{i+1}</th>
+                                <td>{}</td>
                                 <td>Quality Control Specialist</td>
                                 <td>Blue</td>
                             </tr>)

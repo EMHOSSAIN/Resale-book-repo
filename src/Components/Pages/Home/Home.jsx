@@ -2,6 +2,7 @@ import React from 'react';
 import CategoryTitle from '../CategoryTitle/CategoryTitle';
 import Banner from './Banner/Banner';
 import Footer from './Footer/Footer';
+import Section from './Section/Section';
 
 
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <CategoryTitle></CategoryTitle>
+            <Section></Section>
             <Footer></Footer>
         </div>
     );

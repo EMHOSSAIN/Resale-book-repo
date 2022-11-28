@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Model = ({setResaleBook, resaleBook}) => {
@@ -71,7 +72,7 @@ const Model = ({setResaleBook, resaleBook}) => {
                     <input name='name'  type="text" value={user?.displayName} className="input input-bordered w-full mt-3" />
                    <input name='number' type="text" placeholder="Your Mobile Number" className="input input-bordered w-full mt-3" />
                    <input name='location' type="text" placeholder="Your Location" className="input input-bordered w-full mt-3" />
-                    <input className='btn w-full mt-4' type='submit' value='submit'/>
+                    <Link to='/dashboard'><input className='btn w-full mt-4' type='submit' value='submit'/></Link>
                    </form>
                 </div>
             </div>
